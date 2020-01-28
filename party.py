@@ -1,7 +1,7 @@
 """Flask site for Balloonicorn's Party."""
 
 from flask import Flask, session, render_template, request, flash, redirect
-# from flask_debugtoolbar import DebugToolbarExtension
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 app.secret_key = "SECRETSECRETSECRET"
@@ -19,7 +19,7 @@ def is_mel(name, email):
     True
     """
 
-    return name == "Mel Melitpolski" or email == "mel@ubermelon.com"
+    return name.islower() == "mel melitpolski" or email == "mel@ubermelon.com"
 
 
 def most_and_least_common_type(treats):
